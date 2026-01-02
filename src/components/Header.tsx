@@ -30,14 +30,15 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="/ru"
-            className="rounded-lg border border-zinc-200 px-3 py-1 text-xs text-zinc-700 hover:bg-zinc-50"
-          >
-            RU
-          </Link>
+        <Link
+        href="/ru"
+        className="rounded-lg border border-zinc-200 px-3 py-1 text-xs text-zinc-700 hover:bg-zinc-50"
+        >
+        RU / EN
+        </Link>
+
           <a
-            href="https://github.com/"
+            href="https://github.com/Uniss1"
             target="_blank"
             rel="noreferrer"
             className="rounded-lg border border-zinc-200 px-3 py-1 text-xs text-zinc-700 hover:bg-zinc-50"
