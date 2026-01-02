@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getAllPosts } from "@/lib/posts";
 
 export default function HomePage() {
   return (
@@ -69,9 +70,30 @@ export default function HomePage() {
             View all →
           </Link>
         </div>
-        <div className="rounded-2xl border border-zinc-200 p-6 text-sm text-zinc-700">
-          Blog posts coming soon. First post will be a roadmap of what I’m building.
-        </div>
+
+        {posts.length === 0 ? (
+          <div className="rounded-2xl border border-zinc-200 p-6 text-sm text-zinc-700">
+            No posts yet. Coming soon.
+          </div>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-3">
+            {posts.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="rounded-2xl border border-zinc-200 p-5 hover:bg-zinc-50"
+              >
+                <p className="text-xs text-zinc-500">
+                  {p.date} • {p.readingTime}
+                </p>
+                <h3 className="mt-2 text-sm font-semibold">{p.title}</h3>
+                <p className="mt-2 text-sm text-zinc-700 line-clamp-3">
+                  {p.summary}
+                </p>
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );
